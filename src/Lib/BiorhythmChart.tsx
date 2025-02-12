@@ -38,7 +38,7 @@ const BiorhythmChart: React.FC<BiorhythmChartProps> = ({
               />
               {/* <YAxis domain={[-1, 1]} style={{fontSize:"10px"}}/> */}
               <ReferenceLine x={data[0].date} stroke="grey" />
-        {/* <CartesianGrid stroke="#eee" strokeDasharray="-1 1" /> */}
+        {/* <CartesianGrid stroke="#eee" strokeDasharray="-1 -1" vertical={false} /> */}
         <Line  dataKey="physical" stroke="red" type="natural" dot={false} />
         <Line  dataKey="emotional" stroke="blue" type="natural" dot={false}/>
         <Line  dataKey="intellectual" stroke="green" dot={false} type="natural"/>

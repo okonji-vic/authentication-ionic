@@ -24,9 +24,9 @@ const BiorhythmCard: React.FC<BiorhythmCardProps> = ({ birthDate, targetDate, fo
                 {birthDate && targetDate && (
                     <>
                         
-                        <p>Physical: {calculateBiorhythm(birthDate, targetDate).physical.toFixed(4)}</p>
-                        <p>Emotional: {calculateBiorhythm(birthDate, targetDate).emotional.toFixed(4)}</p>
-                        <p>Intellectual: {calculateBiorhythm(birthDate, targetDate).intellectual.toFixed(4)}</p>
+                        <p style={{color:"red"}}>Physical: {calculateBiorhythm(birthDate, targetDate).physical.toFixed(4)}</p>
+                        <p style={{color:"blue"}}>Emotional: {calculateBiorhythm(birthDate, targetDate).emotional.toFixed(4)}</p>
+                        <p style={{color:"green"}}>Intellectual: {calculateBiorhythm(birthDate, targetDate).intellectual.toFixed(4)}</p>
                     </>
                 )}
             </IonCardContent>
