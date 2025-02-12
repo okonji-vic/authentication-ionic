@@ -5,7 +5,8 @@ import {
   LineChart,
   ResponsiveContainer,
   XAxis,
-  YAxis,
+    YAxis,
+    ReferenceLine,
 } from "recharts";
 
 interface BiorhythmChartProps {
@@ -25,19 +26,22 @@ const BiorhythmChart: React.FC<BiorhythmChartProps> = ({
   calculateBiorhythmSeries,
 }) => {
   // Fetch biorhythm data for 20 days
-  const data = calculateBiorhythmSeries(birthDate, targetDate, 20);
+  const data = calculateBiorhythmSeries(birthDate, targetDate, 30);
 
   console.log(data);
 
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer width="100%" height={200} >
       <LineChart data={data}>
-        <XAxis dataKey="date" style={{fontSize:"10px"}}/>
-        <YAxis domain={[-1, 1]} style={{fontSize:"10px"}}/>
-        <CartesianGrid stroke="#eee" strokeDasharray="-1 1" />
-        <Line type="monotone" dataKey="physical" stroke="red" />
-        <Line type="monotone" dataKey="emotional" stroke="blue" />
-        <Line type="monotone" dataKey="intellectual" stroke="green" dot={false} />
+              <XAxis dataKey="date" style={{ fontSize: "10px" }}
+            ticks={[data[1].date, data[3].date, data[5].date, data[7].date]}
+              />
+              {/* <YAxis domain={[-1, 1]} style={{fontSize:"10px"}}/> */}
+              <ReferenceLine x={data[0].date} stroke="grey" />
+        {/* <CartesianGrid stroke="#eee" strokeDasharray="-1 1" /> */}
+        <Line  dataKey="physical" stroke="red" type="natural" dot={false} />
+        <Line  dataKey="emotional" stroke="blue" type="natural" dot={false}/>
+        <Line  dataKey="intellectual" stroke="green" dot={false} type="natural"/>
       </LineChart>
     </ResponsiveContainer>
   );

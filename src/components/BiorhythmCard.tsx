@@ -17,7 +17,7 @@ const BiorhythmCard: React.FC<BiorhythmCardProps> = ({ birthDate, targetDate, fo
     return (
         <IonCard>
             <IonCardHeader>
-                <IonCardTitle>{formatDate(targetDate)}</IonCardTitle>
+                <IonCardTitle className="card-title">{formatDate(targetDate)}</IonCardTitle>
                 <BiorhythmChart birthDate={birthDate} targetDate={targetDate} calculateBiorhythmSeries={calculateBiorhythmSeries} />
             </IonCardHeader>
             <IonCardContent>
