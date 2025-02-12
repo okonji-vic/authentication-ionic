@@ -97,9 +97,9 @@ const RegisterPage2: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className="ion-padding">
-        <form onSubmit={handleRegister}>
-          <div className="register-container">
+      {/* <IonContent className="ion-padding"> */}
+        {/* <form onSubmit={handleRegister}> */}
+          {/* <div className="register-container">
             <IonInput ref={firstNameRef} className="input-field" placeholder="First Name" autoComplete="given-name"
               onIonChange={(e) => setFormData({ ...formData, first_name: e.detail.value || "" })} />
             
@@ -121,14 +121,14 @@ const RegisterPage2: React.FC = () => {
             <IonInput className="input-field" placeholder="Confirm Password" autoComplete="new-password" type="password"
               onIonChange={(e) => setFormData({ ...formData, confirm_password: e.detail.value || "" })} />
             
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>} */}
             
             <IonButton className="button-register" type="submit">Register</IonButton>
             <p className="login-parag">Already have an account?</p>
             <IonButton className="button-login" onClick={() => history.push("/login")}>Login</IonButton>
-          </div>
+          {/* </div>
         </form>
-      </IonContent>
+      </IonContent> */}
     </IonPage>
   );
 };
