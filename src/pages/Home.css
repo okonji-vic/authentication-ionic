@@ -80,4 +80,15 @@
     border: 10px solid blue;
   }
 
-   
+   .button-logout {
+    margin: 40px auto;
+   }
+
+   .form-label  {
+    margin-bottom: 10px!important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    /* background-color: white!important; */
+    }
+

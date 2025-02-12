@@ -239,19 +239,19 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
 
             <IonList>
               <IonItem>
-                <IonLabel position="floating">Name</IonLabel>
+                <IonLabel position="floating" className='form-label'>Name</IonLabel>
                 <IonInput 
                   placeholder="Enter your Name" 
                   type="text" 
                   value={Name} 
-                  onIonChange={e => setName(e.detail.value!)} 
+                  onIonInput={e => setName(e.detail.value!)} 
                 />
               </IonItem>
             </IonList>
 
             <IonList>
               <IonItem>
-                <IonLabel position="floating">Target Date</IonLabel>
+                <IonLabel position="floating" className='form-label'>Target Date</IonLabel>
                 <IonInput 
                   placeholder="Enter your target date" 
                   type="date" 
@@ -269,7 +269,7 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
 
             )}
             
-            <IonButton expand="block" onClick={logout}>Logout</IonButton>
+            <IonButton expand="block" onClick={logout} className='button-logout' >Logout</IonButton>
           </>
         )}
       </IonContent>
