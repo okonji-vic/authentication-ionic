@@ -1,0 +1,29 @@
+
+
+.button-login {
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button-register {
+    display: flex;
+    width: 10%;
+    margin: 20px 0;
+}
+
+.login-parag {
+ display: inline;
+  margin-top: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .button-register {
+    width: 100%;
+  }
+}
+
+

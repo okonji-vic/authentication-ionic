@@ -1,0 +1,83 @@
+/* .light-theme {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+  }
+  
+  .dark-theme {
+    --ion-background-color: #1e1e1e;
+    --ion-text-color: #ffffff;
+  }
+
+  
+
+  .header .light-theme {
+    --ion-background-color: #ffffff !important;
+    --ion-text-color: #000000 !important;
+    --ion-toolbar-background: #ffffff !important;
+  }
+
+    .header .dark-theme {
+        --ion-background-color: #1e1e1e;
+        --ion-text-color: #ffffff;
+    }
+  
+  .skeleton-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .toggle .light-theme {
+    --ion-color-thumb: #000000 !important;
+    --ion-color-track: #d1d1d1 !important;
+  }
+  
+  .toggle .dark-theme  {
+    --ion-color-thumb: #ffffff !important;
+    --ion-color-track: #4a4a4a !important;
+  }
+
+  
+  
+.light-theme .form-item {
+    --ion-background-color: #ffffff !important; 
+    --ion-color: #000000 !important; 
+  }
+  
+  
+  .dark-theme .form-item {
+    --ion-background-color: #1e1e1e !important; 
+    --ion-color: #ffffff !important; 
+  }
+  
+  
+  .light-theme .form-input {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  .dark-theme .form-input {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+  }
+
+  .light-theme .form-container {
+    --ion-background-color: #ffffff !important;
+    --ion-text-color: #000000 !important;
+    border: 1px solid blue;
+  }
+
+    .dark-theme .form-container {
+        --ion-background-color: #1e1e1e !important;
+        --ion-text-color: #ffffff !important;
+    }
+  
+   */
+
+   .ion-item {
+    margin-bottom: 120px!important; 
+    padding-bottom: 8px;
+    border: 10px solid blue;
+  }
+
+   
