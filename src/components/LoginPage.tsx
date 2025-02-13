@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
               value={password}
               onIonChange={(e) => setPassword(e.detail.value || "")}
             />
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="error-parag">{error}</p>}
             <p className="forgot-password" onClick={() => history.push("/forgot-password")}>
               Forgot password?
             </p>
