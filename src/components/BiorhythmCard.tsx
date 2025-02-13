@@ -8,15 +8,16 @@ interface BiorhythmCardProps {
     birthDate: string;
     targetDate: string;
     formatDate: (isoString: string) => string;
+    darkMode: boolean;
 }
-const BiorhythmCard: React.FC<BiorhythmCardProps> = ({ birthDate, targetDate, formatDate }) => {
+const BiorhythmCard: React.FC<BiorhythmCardProps> = ({ birthDate, targetDate, formatDate, darkMode }) => {
     if (!birthDate || !targetDate) return null;
 
 
 
     return (
-        <IonCard>
-            <IonCardHeader>
+        <IonCard className={darkMode ? "dark-theme ion-card" : "light-theme ion-card"}>
+            <IonCardHeader className="ion-text-center"> 
                 <IonCardTitle className="card-title">{formatDate(targetDate)}</IonCardTitle>
                 <BiorhythmChart birthDate={birthDate} targetDate={targetDate} calculateBiorhythmSeries={calculateBiorhythmSeries} />
             </IonCardHeader>

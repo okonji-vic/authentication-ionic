@@ -222,7 +222,7 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
         ) : (
           <>
             <h1>{profile ? `Welcome ${profile.user.first_name.charAt(0).toUpperCase() + profile.user.first_name.slice(1).toLowerCase()}!` : "Welcome!"}</h1>
-            <BiorhythmCard birthDate={birthDate} targetDate={targetDate} formatDate={formatDate} />
+            <BiorhythmCard birthDate={birthDate} targetDate={targetDate} formatDate={formatDate} darkMode={darkMode} />
             
             <form className="form-container">
               <IonItem className="form-item">
@@ -263,13 +263,13 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
 
             {birthDate && Name && (
                 // <p>Hello {Name.toUpperCase()}, your birthdate is {formatDate(birthDate)} and you are {calculateAge(birthDate)} years old!</p>
-                <p>
+                <p className='ion-padding'>
   Hello {Name.charAt(0).toUpperCase() + Name.slice(1).toLowerCase()}, your birthdate is {formatDate(birthDate)} and you are {calculateAge(birthDate)} years old!
 </p>
 
             )}
             
-            <IonButton expand="block" onClick={logout} className='button-logout' >Logout</IonButton>
+            <IonButton expand="block" onClick={logout} className='ion-padding' >Logout</IonButton>
           </>
         )}
       </IonContent>
