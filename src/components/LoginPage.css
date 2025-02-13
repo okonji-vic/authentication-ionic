@@ -22,6 +22,34 @@
     display: inline-block;
     vertical-align: middle;
   }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bounceForward {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 1s infinite ease-in-out;
+  }
+
+  .bounce-forward {
+    animation: bounceForward 1s infinite ease-in-out;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
 
 
 

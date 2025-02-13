@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { IonButton, IonInput, IonContent, IonPage } from "@ionic/react";
+import { IonButton, IonInput, IonContent, IonPage, IonIcon } from "@ionic/react";
+import { addCircleOutline, arrowDownOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
+
 import { login } from "../api"; // Import API functions
 import "./LoginPage.css";
 
@@ -62,6 +64,9 @@ const LoginPage: React.FC = () => {
               Login
             </IonButton>
             <p className="register-parag">Don't have an account?</p> 
+            <IonIcon icon={arrowDownOutline} className="bounce" />
+
+          
             <IonButton
              className="button-regis"
             onClick={() => history.push("/register")}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { IonButton, IonInput, IonContent, IonPage } from "@ionic/react";
+import { IonButton, IonInput, IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonIcon } from "@ionic/react";
+import { arrowForwardOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
 import { register } from "../api";
 import "./RegisterPage.css";
@@ -56,10 +57,15 @@ const RegisterPage: React.FC = () => {
 
 
   return (
-    <IonPage>
+    <IonPage className="register-page">
       <IonContent className="ion-padding">
         <form onSubmit={handleRegister}>
           <div className="register-container">
+            <IonCard className="register-card">
+            <IonCardHeader>
+                <IonCardTitle className="ion-text-center" style={{color:"blue"}}>BioRhythym Register</IonCardTitle>
+              </IonCardHeader>
+            </IonCard>
             <IonInput
               className="input-field"
               placeholder="First Name"
@@ -127,6 +133,8 @@ const RegisterPage: React.FC = () => {
               Register
             </IonButton>
             <p className="login-parag">Already have an account?</p>
+            <IonIcon icon={arrowForwardOutline} className="bounce-forward" />
+
             <IonButton
               className="button-login"
               onClick={() => history.push("/login")}
