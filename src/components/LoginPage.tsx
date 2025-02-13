@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IonButton, IonInput, IonContent, IonPage, IonIcon } from "@ionic/react";
-import { addCircleOutline, arrowDownOutline } from "ionicons/icons";
+import { arrowDownOutline, arrowForwardOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
 
 import { login } from "../api"; // Import API functions
@@ -11,6 +11,7 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+  
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,6 +39,12 @@ const LoginPage: React.FC = () => {
       console.error("Login error:", err);
     }
   };
+
+  
+  
+
+
+  
   
   
 
@@ -60,19 +67,26 @@ const LoginPage: React.FC = () => {
               onIonChange={(e) => setPassword(e.detail.value || "")}
             />
             {error && <p style={{ color: "red" }}>{error}</p>}
+            <p className="forgot-password" onClick={() => history.push("/forgot-password")}>
+              Forgot password?
+            </p>
             <IonButton className="button" type="submit">
               Login
             </IonButton>
-            <p className="register-parag">Don't have an account?</p> 
-            <IonIcon icon={arrowDownOutline} className="bounce" />
+            
+            <p className="register-parag">
+              Don't have an account?
+              <IonIcon icon={arrowForwardOutline} className="bounce-forward" /><span onClick={() => history.push("/register")} className="register-span">Register here</span>
+            </p> 
+            
 
           
-            <IonButton
+            {/* <IonButton
              className="button-regis"
             onClick={() => history.push("/register")}
             >
             Register
-            </IonButton>
+            </IonButton> */}
           </div>
         </form>
       </IonContent>

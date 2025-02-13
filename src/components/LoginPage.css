@@ -1,63 +1,78 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 70%;
-    margin: 0 auto;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 70%;
+  margin: 0 auto;
+}
 
-  .register-parag {
-    display: inline;
-    margin-top: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
+.register-parag {
+  display: inline;
+  margin-top: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
 
-  .button-regis {
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
+.button-regis {
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  50% {
+    transform: translateY(-10px);
   }
+}
 
-  @keyframes bounceForward {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(10px);
-    }
+@keyframes bounceForward {
+  0%,
+  100% {
+    transform: translateX(0);
   }
-  
-  .bounce {
-    animation: bounce 1s infinite ease-in-out;
+  50% {
+    transform: translateX(10px);
   }
+}
 
-  .bounce-forward {
-    animation: bounceForward 1s infinite ease-in-out;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  
+.bounce {
+  animation: bounce 1s infinite ease-in-out;
+}
 
+.bounce-forward {
+  animation: bounceForward 1s infinite ease-in-out;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 
+.forgot-password {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-left: 75%;
+  text-align: right;
+  cursor: pointer;
+  color: brown;
+}
+
+.register-span {
+  cursor: pointer;
+  color: brown;
+}
 
 @media (max-width: 768px) {
-
-.login-container {
+  .login-container {
     width: 100%;
-  height: 100vh; 
-}
-}
+    height: 100vh;
+  }
 
+  .forgot-password {
+    margin-left: 60%;
+  }
+}
