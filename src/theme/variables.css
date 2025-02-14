@@ -77,5 +77,10 @@ http://ionicframework.com/docs/theming/ */
 
     }
 
+    .dark-theme .input-field {
+        color: #ffffff;
+        
+    }
+
 
    

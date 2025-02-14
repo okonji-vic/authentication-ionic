@@ -63,7 +63,7 @@ const RegisterPage: React.FC = () => {
           <div className="register-container">
             <IonCard className="register-card">
             <IonCardHeader>
-                <IonCardTitle className="ion-text-center" style={{color:"blue"}}>BioRhythym Register</IonCardTitle>
+                <IonCardTitle className="ion-text-center card-title" style={{color:"blue"}}>BioRhythym Register</IonCardTitle>
               </IonCardHeader>
             </IonCard>
             <IonInput
