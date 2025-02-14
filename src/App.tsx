@@ -36,12 +36,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { useEffect, useState } from 'react';
+import { useLocalStorage } from './Lib/hooks';
 
 setupIonicReact();
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  // const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false);
 
   useEffect(() => {
     // Check if user is authenticated (e.g., token exists)
