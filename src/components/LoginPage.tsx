@@ -30,7 +30,8 @@ const LoginPage: React.FC = () => {
       if (data?.token) {
         localStorage.setItem("token", data.token); // ✅ Store token correctly
         setError(""); // ✅ Clear errors if login succeeds
-        window.location.href = "/home"; // Redirect to home page
+        // window.location.href = "/home"; // Redirect to home page
+        history.replace("/home"); // Redirect to home page and supposed to prevent black flashes 
       } else {
         setError(data.message || "Login failed. Please try again.");
       }

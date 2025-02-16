@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IonButton, IonInput, IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonIcon } from "@ionic/react";
 import { arrowForwardOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
@@ -25,6 +25,13 @@ const RegisterPage: React.FC = () => {
 
     // ✅ Debug: Log form data
     console.log("Form Data before sending:", JSON.stringify(formData, null, 2));
+
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        history.replace("/home"); // Redirect if authenticated
+      }
+    }, []);
 
     // ✅ Validate all fields
     for (const key in formData) {

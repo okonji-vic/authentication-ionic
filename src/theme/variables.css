@@ -81,6 +81,34 @@ http://ionicframework.com/docs/theming/ */
         color: #ffffff;
         
     }
+    .active {
+      border-radius: 5px;
+    }
+
+    .dark-theme .active {
+        background-color: grey;
+    }
+
+    .light-theme .active {
+        background-color: rgb(83, 83, 241);
+    }
+
+    
+    
+
+    .error-message {
+      color: red;
+      text-align: center;
+    }
+
+   
+
+    /* .hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    } */
+    
 
 
    

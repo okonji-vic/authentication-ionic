@@ -13,9 +13,10 @@ import { useLocalStorage } from '../Lib/hooks';
 interface HomeProps {
   darkMode: boolean;
   setDarkMode: (darkMode: boolean) => void;
+  logout: () => void;
 }
 
-const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
+const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode, logout }) => {
   const [profile, setProfile] = useState<any>(null);
   const [loaded, setLoaded] = useState<boolean>(false);
   const [birthDate, setBirthDate] = useLocalStorage('birthDate', '');
@@ -49,23 +50,13 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode }) => {
     loadProfile();
   }, [token]);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/home";
-  };
   // const username = profile.user.first_name.charAt(0).toUpperCase() + profile.user.first_name.slice(1).toLowerCase();
 
   return (
-    <IonPage className={darkMode ? "dark-theme" : "light-theme"}>
-      <IonHeader className={darkMode ? "dark-theme header" : "light-theme header"}>
-        <IonToolbar className={darkMode ? "dark-theme toolbar" : "light-theme toolbar"}>
-          <IonTitle>BioRhythms Calculator</IonTitle>
-          <IonToggle 
-            checked={darkMode} 
-            onIonChange={() => setDarkMode(!darkMode)}
-            slot="end"
-            className={darkMode ? "dark-theme toggle" : "light-theme toggle"}
-          />
+    <IonPage   className={darkMode ? "dark-theme" : "light-theme"}>
+      <IonHeader className={darkMode ? "dark-theme header " : "light-theme header"}>
+        <IonToolbar className={darkMode ? "dark-theme toolbar" : "light-theme toolbar "}>
+          <IonTitle className='ion-text-center' style={{marginTop:"70px"}} >BioRhythms Calculator</IonTitle>
         </IonToolbar>
       </IonHeader>
 
