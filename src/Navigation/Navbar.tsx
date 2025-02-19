@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar, IonToggle } from "@ionic/react";
+import { IonButton, IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar, IonToggle, IonPopover, IonContent, IonMenu, IonPage } from "@ionic/react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useLocalStorage } from "../Lib/hooks";
+import "./Navbar.css";
 
 
 interface NavbarProps {
@@ -12,10 +13,9 @@ interface NavbarProps {
 
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
-    //  const [title, setTitle] = useLocalStorage("title", "Home");
     const [title, setTitle] = useState("Home");
-    // const [activePage, setActivePage] = useLocalStorage("activePage", "home");
     const [activePage, setActivePage] = useState(title);
+    // const [isOpen, setIsOpen] = useState(false);
     const history = useHistory();
     const location = useLocation();
     const token = localStorage.getItem("token");
@@ -49,51 +49,64 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
           };
           setTitle(titles[location.pathname] || "BioRhythms Calculator");
     }, [location.pathname]);
-    
-    
 
-    
+    // const toggleMenu = () => {
+    //     setIsOpen(!isOpen);
+    // };
 
     return (
+        <>
+        <IonMenu contentId="main-content">
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
-                    <IonMenuButton />
+                    <IonMenuButton style={{color:"red"}} >X</IonMenuButton>
                 </IonButtons>
-                <IonTitle>{title}</IonTitle>
-                <IonButtons slot="end">
-                    <IonButton className={activePage === "home" ? "active" : ""} onClick={() => { history.push("/home"); setActivePage("home"); }}>
+                    <IonTitle>Menu</IonTitle>
+            </IonToolbar>
+            </IonHeader>
+            <IonContent>
+                    {/* <IonButtons slot="end"> */}
+                    <IonButton size="large" expand="full" fill="clear" className={location.pathname === "/home" ? "active" : ""} onClick={() => { history.push("/home"); setActivePage("home"); }}>
                         Home
                     </IonButton>
-                    <IonButton className={activePage === "about" ? "active" : ""} onClick={() => { history.push("/about"); setActivePage("about"); }}>
+                    <IonButton size="large" expand="full" fill="clear" className={location.pathname === "/about" ? "active" : ""} onClick={() => { history.push("/about"); setActivePage("about"); }}>
                         About
                     </IonButton>
-                    {token ? (
-                        <IonButton onClick={() => logout()}>
+                        <IonButton size="large" expand="full" fill="clear" onClick={() => logout()}>
                             Logout
                         </IonButton>
-                    ) : (
-                        <IonButton className={activePage === "login" ? "active" : ""} onClick={() => { history.push("/login"); setActivePage("login"); }}>
-                            Login
-                        </IonButton>
-                    )}
-                    {/* <IonButton className={activePage === "register" ? "active" : ""} onClick={() => { history.push("/register"); setActivePage("register"); }}
+                      
                     
-                    
-                    {/* <IonButton onClick={toggleDarkMode}>
-                        {darkMode ? "Light Mode" : "Dark Mode"}
-                    </IonButton> */}
-                    
-                </IonButtons>
-                <IonToggle 
-            checked={darkMode} 
-            onIonChange={() => setDarkMode(!darkMode)}
-            slot="end"
-            className={darkMode ? "dark-theme toggle" : "light-theme toggle"}
-          />
-            </IonToolbar>
-        </IonHeader>
+                {/* </IonButtons> */}
+            </IonContent>
+            </IonMenu>
+                <IonHeader id="main-content">
+                    <IonToolbar>
+                        <IonButtons slot="end">
+                            <IonMenuButton></IonMenuButton>
+                        </IonButtons>
+                        <IonTitle>{title}</IonTitle>
+                        <IonToggle
+                          checked={darkMode}
+                          onIonChange={() => setDarkMode(!darkMode)}
+                          slot="end"
+                          className={darkMode ? "dark-theme toggle" : "light-theme toggle"}
+                         />
+                    </IonToolbar>
+                </IonHeader>
+            
+        </>
+        
+        
     );
 };
 
 export default Navbar;
+
+
+
+
+
+        
+

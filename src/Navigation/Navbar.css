@@ -1,0 +1,58 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem; */
+    background: #333;
+    color: white;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .line {
+    width: 20px;
+    height: 3px;
+    background: white;
+    margin: 3px;
+    transition: 0.3s;
+  }
+  
+  /* Rotate animation when menu is open */
+  .line.open:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .line.open:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .line.open:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #222;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .nav-links.show {
+    display: flex;
+  }
+  
+  .nav-link {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  
