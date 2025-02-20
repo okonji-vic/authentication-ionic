@@ -25,7 +25,8 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
   const [title, setTitle] = useState("Home");
-  const [activePage, setActivePage] = useState(title);
+    const [activePage, setActivePage] = useState(title);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 668);
   // const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
   const location = useLocation();
@@ -61,11 +62,15 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
     setTitle(titles[location.pathname] || "BioRhythms Calculator");
   }, [location.pathname]);
 
-  // const toggleMenu = () => {
-  //     setIsOpen(!isOpen);
-    // };
-    
-    const isMobile = window.innerWidth < 668;
+    useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 668);
+    };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
     console.log("isMobile", isMobile);
 
   return (
