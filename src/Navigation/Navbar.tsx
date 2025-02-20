@@ -63,69 +63,75 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
 
   // const toggleMenu = () => {
   //     setIsOpen(!isOpen);
-  // };
+    // };
+    
+    const isMobile = window.innerWidth < 668;
+    console.log("isMobile", isMobile);
 
   return (
     <>
-      <IonMenu contentId="main-content" id="main-menu">
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonMenuButton style={{ color: "red" }}>X</IonMenuButton>
-            </IonButtons>
-            <IonTitle>Menu</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          {/* <IonButtons slot="end"> */}
-          <IonButton
-            size="large"
-            expand="full"
-            fill="clear"
-            className={location.pathname === "/home" ? "active" : ""}
-            onClick={async () => {
-              history.push("/home");
-              setActivePage("home");
-            //   await menuController.enable(true, "main-menu");
-            //     await menuController.close("main-menu"); // Close the IonMenu
-                document.querySelector("ion-menu")?.close();
-            }}
-          >
-            Home
-          </IonButton>
-          <IonButton
-            size="large"
-            expand="full"
-            fill="clear"
-            className={location.pathname === "/about" ? "active" : ""}
-            onClick={async () => {
-              history.push("/about");
-                setActivePage("about");
-            //   await menuController.enable(true, "main-menu");
-            //     await menuController.close("main-menu"); // Close the IonMenu
-                document.querySelector("ion-menu")?.close();
-            }}
-          >
-            About
-          </IonButton>
-          <IonButton
-            size="large"
-            expand="full"
-            fill="clear"
-            onClick={() => logout()}
-          >
-            Logout
-          </IonButton>
+          {isMobile ? (
+              <>
+          <IonMenu contentId="main-content" id="main-menu">
+              <IonHeader>
+                  <IonToolbar>
+                      <IonButtons slot="start">
+                          <IonMenuButton style={{ color: "red" }}>X</IonMenuButton>
+                      </IonButtons>
+                      <IonTitle>Menu</IonTitle>
+                  </IonToolbar>
+              </IonHeader>
+              <IonContent>
+                  {/* <IonButtons slot="end"> */}
+                  <IonButton
+                      size="large"
+                      expand="full"
+                      fill="clear"
+                      className={location.pathname === "/home" ? "active" : ""}
+                      onClick={async () => {
+                          history.push("/home");
+                          setActivePage("home");
+                          //   await menuController.enable(true, "main-menu");
+                          //     await menuController.close("main-menu"); // Close the IonMenu
+                          document.querySelector("ion-menu")?.close();
+                      }}
+                  >
+                      Home
+                  </IonButton>
+                  <IonButton
+                      size="large"
+                      expand="full"
+                      fill="clear"
+                      className={location.pathname === "/about" ? "active" : ""}
+                      onClick={async () => {
+                          history.push("/about");
+                          setActivePage("about");
+                          //   await menuController.enable(true, "main-menu");
+                          //     await menuController.close("main-menu"); // Close the IonMenu
+                          document.querySelector("ion-menu")?.close();
+                      }}
+                  >
+                      About
+                  </IonButton>
+                  <IonButton
+                      size="large"
+                      expand="full"
+                      fill="clear"
+                      onClick={() => logout()}
+                  >
+                      Logout
+                  </IonButton>
 
-          {/* </IonButtons> */}
-        </IonContent>
-      </IonMenu>
+                  {/* </IonButtons> */}
+              </IonContent>
+          </IonMenu>
       <IonHeader id="main-content">
         <IonToolbar>
           <IonButtons slot="end">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
           <IonTitle>{title}</IonTitle>
+          
           <IonToggle
             checked={darkMode}
             onIonChange={() => setDarkMode(!darkMode)}
@@ -133,7 +139,52 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, logout }) => {
             className={darkMode ? "dark-theme toggle" : "light-theme toggle"}
           />
         </IonToolbar>
-      </IonHeader>
+              
+                  </IonHeader>
+                </>
+                  ) : (
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="end">
+          <IonButton
+                      fill="clear"
+                      className={location.pathname === "/home" ? "active" : ""}
+                      onClick={async () => {
+                          history.push("/home");
+                          setActivePage("home");
+                          document.querySelector("ion-menu")?.close();
+                      }}
+                  >
+                      Home
+                  </IonButton>
+                  <IonButton
+                      fill="clear"
+                      className={location.pathname === "/about" ? "active" : ""}
+                      onClick={async () => {
+                          history.push("/about");
+                          setActivePage("about");
+                          document.querySelector("ion-menu")?.close();
+                      }}
+                  >
+                      About
+                  </IonButton>
+                  <IonButton
+                      fill="clear"
+                      onClick={() => logout()}
+                  >
+                      Logout
+                  </IonButton>
+          </IonButtons>
+          <IonTitle>{title}</IonTitle>
+          
+          <IonToggle
+            checked={darkMode}
+            onIonChange={() => setDarkMode(!darkMode)}
+            slot="end"
+            className={darkMode ? "dark-theme toggle" : "light-theme toggle"}
+          />
+        </IonToolbar>
+      </IonHeader>)}
     </>
   );
 };

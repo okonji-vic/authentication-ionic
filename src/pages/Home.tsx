@@ -119,7 +119,7 @@ const Home: React.FC<HomeProps> = ({ darkMode, setDarkMode, logout }) => {
 
             )}
             
-            <IonButton expand="block" onClick={logout} className='ion-padding' >Logout</IonButton>
+            {/* <IonButton expand="block" onClick={logout} className='ion-padding' >Logout</IonButton> */}
           </>
         )}
       </IonContent>

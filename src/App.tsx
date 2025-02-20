@@ -24,6 +24,7 @@ import { lazy, Suspense } from "react";
 import ErrorComponent from "./components/ErrorComponent";
 import Page404 from "./components/Page404";
 import { ErrorBoundary } from "react-error-boundary";
+import Footer from "./Footer/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -90,7 +91,9 @@ const AuthHandler: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => 
     // window.location.reload();
   };
 
-  return isAuthenticated ? (
+  return (
+  <>
+  {isAuthenticated ? (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} logout={logout} />
       <IonRouterOutlet>
@@ -108,7 +111,9 @@ const AuthHandler: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => 
           </Suspense>
         </Route>
         <Route component={Page404} />
+        
       </IonRouterOutlet>
+      <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
     </>
   ) : (
     <IonRouterOutlet>
@@ -128,11 +133,13 @@ const AuthHandler: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => 
         <ForgotPassword />
         </Route>
         <Route component={Page404} />
-
-
-    </IonRouterOutlet>
+        </IonRouterOutlet>
+    )}
+  </>
   );
 };
+
+ 
 
 const LoadingSkeleton = () => (
   <div>

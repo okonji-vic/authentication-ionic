@@ -87,10 +87,12 @@ http://ionicframework.com/docs/theming/ */
 
     .dark-theme .active {
         background-color: grey;
+        color: #000000;
     }
 
     .light-theme .active {
-        background-color: rgb(83, 83, 241);
+        background-color: rgb(34, 34, 49);
+        color: #ffffff;
     }
 
     
